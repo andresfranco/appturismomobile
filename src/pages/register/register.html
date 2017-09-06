@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+       Sign Up
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+<ion-content padding>
+    <form (ngSubmit)="SignUpForm()">
+        <ion-item>
+          <ion-label>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="userData.name" name="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input type="email" [(ngModel)]="userData.email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="userData.password" name="password"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-label>Country Code</ion-label>
+                <ion-select [(ngModel)]="userData.phoneCode" name="phoneCode">
+
+                <ion-option *ngFor="let country of countries" [value]="country.phonecode">+({{country.phonecode}}) {{country.name }}</ion-option>
+                </ion-select>
+                </ion-item>    
+          <ion-item>
+            <ion-label>Phone</ion-label>
+            <ion-input type="text" [(ngModel)]="userData.phoneNumber" name="phoneNumber"></ion-input>
+          </ion-item>  
+        <button ion-button type="submit" block>Sign Up</button>
+      </form>
+</ion-content>
